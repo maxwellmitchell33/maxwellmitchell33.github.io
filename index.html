@@ -13,37 +13,80 @@
 </head>
 <body>
 <p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
 <p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Maxwell Mitchell | Portfolio&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Maxwell Mitchell | Mechanical Engineering&lt;/title&gt;</p>
 <p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: 40px auto; padding: 0 20px; color: #333; background-color: #f4f7f6; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>h1 { color: #1a365d; border-bottom: 2px solid #1a365d; padding-bottom: 10px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>h3 { color: #2c5282; margin-top: 30px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.project { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 20px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.tag { background: #e2e8f0; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; font-weight: bold; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>:root {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--washu-red: #a51417; /* WashU Red */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--dark-blue: #2d3748;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--bg-gray: #f7fafc;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body { font-family: 'Inter', -apple-system, sans-serif; line-height: 1.6; color: #333; margin: 0; background-color: var(--bg-gray); }</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Navigation */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>nav { background: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.05); position: sticky; top: 0; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>nav a { text-decoration: none; color: var(--dark-blue); font-weight: 600; margin-left: 20px; }</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Hero Section */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.hero { background: white; padding: 80px 20px; text-align: center; border-bottom: 1px solid #e2e8f0; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.hero h1 { font-size: 2.5rem; margin: 0; color: var(--dark-blue); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.hero p { font-size: 1.2rem; color: #666; max-width: 600px; margin: 20px auto; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Container */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.container { max-width: 900px; margin: 40px auto; padding: 0 20px; }</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Project Cards */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.2s; border-top: 4px solid var(--washu-red); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card:hover { transform: translateY(-5px); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card h3 { margin-top: 0; color: var(--dark-blue); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.tag { background: #fee2e2; color: var(--washu-red); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>footer { text-align: center; padding: 40px; color: #a0aec0; font-size: 0.9rem; }</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>@media (max-width: 600px) { .project-grid { grid-template-columns: 1fr; } }</p>
 <p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
 <p class="p1">&lt;/head&gt;</p>
 <p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;Maxwell Mitchell&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;&lt;strong&gt;Mechanical Engineering Student @ Washington University in St. Louis&lt;/strong&gt;&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Focusing on Fluid Dynamics, Thermodynamics, and Biomechanical Research.&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;Key Projects&lt;/h3&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="project"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="tag"&gt;MATLAB&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h4&gt;Rankine Cycle Simulation&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Developed a computational model to analyze thermodynamic efficiency in steam power cycles, including reheat stages and T-s diagram generation.&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;nav&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span style="font-weight: bold; color: var(--washu-red);"&gt;MM&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#"&gt;Projects&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#"&gt;Resume&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="mailto:your-email@wustl.edu"&gt;Contact&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/nav&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="hero"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1&gt;Maxwell Mitchell&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Mechanical Engineering Student at &lt;strong&gt;Washington University in St. Louis&lt;/strong&gt;. Interested in Fluid Dynamics, Thermodynamics, and Biomechanics.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Featured Projects&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="project-grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="tag"&gt;MATLAB&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3&gt;Rankine Cycle Simulation&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;Computational modeling of steam power cycles to analyze thermodynamic efficiency and generate T-s diagrams.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="tag"&gt;Research&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3&gt;Knee Injury Rehab&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;A biopsychosocial approach to recovery, integrating mechanical physics with psychological rehabilitation metrics.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
 <p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
 <p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="project"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="tag"&gt;Research&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h4&gt;Knee Injury Rehabilitation Analysis&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;A biopsychosocial approach to recovery techniques, focusing on optimizing physical therapy outcomes through mechanical and psychological integration.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;footer&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&amp;copy; 2026 Maxwell Mitchell | Built with Gemini &amp; GitHub</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</p>
 <p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p style="text-align: center; color: #666; margin-top: 50px;"&gt;Built with Gemini &amp; GitHub Pages&lt;/p&gt;</p>
 <p class="p1">&lt;/body&gt;</p>
 <p class="p1">&lt;/html&gt;</p>
 </body>
