@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
     <!-- Google Fonts for modern typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --bg-dark: #070707;
@@ -21,35 +24,38 @@
             --grad-hover: linear-gradient(135deg, #ff69b4, #9932cc);
         }
 
-        body { 
-            font-family: 'Inter', -apple-system, sans-serif; 
-            line-height: 1.6; 
-            color: var(--text-main); 
-            margin: 0; 
-            background-color: var(--bg-dark); 
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            margin: 0;
+            background-color: var(--bg-dark);
             overflow-x: hidden;
         }
-        
-        h1, h2, h3, .brand {
+
+        h1,
+        h2,
+        h3,
+        .brand {
             font-family: 'Outfit', sans-serif;
         }
 
         /* Navigation */
-        nav { 
-            background: rgba(7, 7, 7, 0.85); 
+        nav {
+            background: rgba(7, 7, 7, 0.85);
             backdrop-filter: blur(12px);
-            padding: 1.2rem 2.5rem; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            position: sticky; 
-            top: 0; 
-            z-index: 100; 
+            padding: 1.2rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
             border-bottom: 1px solid rgba(255, 20, 147, 0.15);
         }
-        
+
         .brand {
-            font-weight: 800; 
+            font-weight: 800;
             font-size: 1.8rem;
             background: var(--grad-primary);
             -webkit-background-clip: text;
@@ -57,16 +63,16 @@
             letter-spacing: 1px;
         }
 
-        nav div a { 
-            text-decoration: none; 
-            color: var(--text-main); 
-            font-weight: 500; 
-            margin-left: 2rem; 
+        nav div a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            margin-left: 2rem;
             transition: color 0.3s ease;
             position: relative;
             font-size: 1rem;
         }
-        
+
         nav div a:hover {
             color: var(--hot-pink);
         }
@@ -86,16 +92,10 @@
             width: 100%;
         }
 
-        .nav-left {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
         /* Hero Section */
-        .hero { 
-            padding: 140px 20px; 
-            text-align: center; 
+        .hero {
+            padding: 140px 20px;
+            text-align: center;
             max-width: 800px;
             margin: 0 auto;
             min-height: 50vh;
@@ -133,9 +133,9 @@
             filter: blur(40px);
         }
 
-        .hero h1 { 
-            font-size: 4.5rem; 
-            margin: 0; 
+        .hero h1 {
+            font-size: 4.5rem;
+            margin: 0;
             line-height: 1.1;
             letter-spacing: -1px;
         }
@@ -146,14 +146,14 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .hero p { 
-            font-size: 1.25rem; 
-            color: var(--text-muted); 
-            max-width: 650px; 
-            margin: 30px auto 40px; 
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 30px auto 40px;
             font-weight: 300;
         }
-        
+
         .hero p strong {
             color: var(--text-main);
             font-weight: 600;
@@ -184,7 +184,8 @@
 
         /* Projects Section */
         #projects-section {
-            display: none; /* Hidden by default */
+            display: none;
+            /* Hidden by default */
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
@@ -199,9 +200,9 @@
             transform: translateY(0);
         }
 
-        .container { 
-            max-width: 1000px; 
-            margin: 0 auto; 
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         h2.section-title {
@@ -214,23 +215,23 @@
         .section-title span {
             color: var(--hot-pink);
         }
-        
+
         /* Project Cards */
-        .project-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            gap: 35px; 
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
         }
 
-        .card { 
-            background: var(--bg-card); 
-            padding: 35px; 
-            border-radius: 16px; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4); 
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
+        .card {
+            background: var(--bg-card);
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex; 
-            flex-direction: column; 
+            display: flex;
+            flex-direction: column;
             position: relative;
             overflow: hidden;
             z-index: 1;
@@ -247,13 +248,13 @@
             z-index: 2;
             transition: height 0.3s ease;
         }
-        
-        .card:hover { 
-            transform: translateY(-12px); 
+
+        .card:hover {
+            transform: translateY(-12px);
             border-color: rgba(255, 20, 147, 0.2);
             box-shadow: 0 20px 45px rgba(75, 0, 130, 0.3);
         }
-        
+
         .card:hover::before {
             height: 6px;
         }
@@ -276,13 +277,13 @@
             background: radial-gradient(circle, rgba(138, 43, 226, 0.1) 0%, transparent 70%);
         }
 
-        .card h3 { 
-            margin-top: 25px; 
+        .card h3 {
+            margin-top: 25px;
             margin-bottom: 12px;
             font-size: 1.5rem;
-            color: var(--text-main); 
+            color: var(--text-main);
         }
-        
+
         .card p {
             color: var(--text-muted);
             flex-grow: 1;
@@ -290,42 +291,52 @@
             line-height: 1.6;
         }
 
-        .tag { 
-            background: rgba(255, 20, 147, 0.1); 
-            color: var(--hot-pink); 
-            padding: 6px 14px; 
-            border-radius: 20px; 
-            font-size: 0.75rem; 
-            font-weight: 700; 
+        .tag {
+            background: rgba(255, 20, 147, 0.1);
+            color: var(--hot-pink);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
             letter-spacing: 1px;
-            text-transform: uppercase; 
+            text-transform: uppercase;
             align-self: flex-start;
-            border: 1px solid rgba(255, 20, 147, 0.2); 
+            border: 1px solid rgba(255, 20, 147, 0.2);
             font-family: 'Inter', sans-serif;
         }
 
-        footer { 
-            text-align: center; 
-            padding: 40px; 
-            color: var(--text-muted); 
-            font-size: 0.9rem; 
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
             border-top: 1px solid rgba(255, 255, 255, 0.03);
             background: var(--bg-dark);
         }
-        
-        @media (max-width: 768px) { 
-            .hero h1 { font-size: 3rem; }
-            nav { padding: 1rem 1.5rem; }
-            nav div a { margin-left: 15px; font-size: 0.9rem;}
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            nav div a {
+                margin-left: 15px;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <nav>
         <div class="nav-left">
             <div class="brand">MM</div>
-            <!-- Spotify Embed Placeholder (Update the URL below to embed your own playlist) -->
+            <!-- Spotify Embed -->
             <iframe style="border-radius:12px; margin-top: 4px;" src="https://open.spotify.com/embed/playlist/3b70HOcE92Y4JNmCpsQwpe?utm_source=generator&theme=0" width="250" height="80" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
         <div>
@@ -337,7 +348,7 @@
 
     <section class="hero">
         <h1>Maxwell <span class="highlight">Mitchell</span></h1>
-        <p>Mechanical Engineering Student at <strong>Washington University in St. Louis</strong>. Interested in Fluid Dynamics, Thermodynamics, and Biomechanics.</p>
+        <p>Mechanical Engineering - <strong>Washington University in St. Louis</strong>. </p>
         <button id="hero-projects-btn" class="btn">Explore My Work</button>
     </section>
 
@@ -345,29 +356,33 @@
         <div class="container">
             <h2 class="section-title">Featured <span>Projects</span></h2>
             <div class="project-grid">
-                
+
                 <div class="card">
                     <span class="tag">MATLAB</span>
                     <h3>Rankine Cycle Simulation</h3>
-                    <p>Computational modeling of steam power cycles to analyze thermodynamic efficiency and generate T-s diagrams.</p>
+                    <p>Computational modeling of steam power cycles to analyze thermodynamic efficiency and generate T-s
+                        diagrams.</p>
                 </div>
 
                 <div class="card">
                     <span class="tag">Research</span>
                     <h3>Knee Injury Rehab</h3>
-                    <p>A biopsychosocial approach to recovery, integrating mechanical physics with psychological rehabilitation metrics.</p>
+                    <p>A biopsychosocial approach to recovery, integrating mechanical physics with psychological
+                        rehabilitation metrics.</p>
                 </div>
 
                 <div class="card">
                     <span class="tag">FEA / SOLID MECHANICS</span>
                     <h3>Landing Gear Impact</h3>
-                    <p>Modeled an Al 7075-T6 strut to analyze compressive stress and plastic deformation risk during "hard landing" scenarios.</p>
+                    <p>Modeled an Al 7075-T6 strut to analyze compressive stress and plastic deformation risk during
+                        "hard landing" scenarios.</p>
                 </div>
 
                 <div class="card">
                     <span class="tag">ARDUINO / CAD</span>
                     <h3>Automated Pill Dispenser</h3>
-                    <p>Designed and built a prototype for individuals with limited dexterity using Arduino logic to control medication scheduling.</p>
+                    <p>Designed and built a prototype for individuals with limited dexterity using Arduino logic to
+                        control medication scheduling.</p>
                 </div>
 
             </div>
@@ -402,7 +417,7 @@
 
             function toggleProjects(e) {
                 if (e) e.preventDefault();
-                
+
                 if (projectsSection.classList.contains('active')) {
                     closeProjects();
                 } else {
@@ -420,4 +435,5 @@
         });
     </script>
 </body>
+
 </html>
