@@ -139,6 +139,35 @@
             filter: drop-shadow(0 4px 8px rgba(255, 20, 147, 0.6));
         }
 
+        .nav-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .syth-logo-btn {
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            margin-left: 2rem !important;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease !important;
+        }
+
+        .syth-logo-btn::after {
+            display: none !important;
+        }
+
+        .syth-logo-btn img {
+            height: 48px;
+            width: auto;
+            border-radius: 8px;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
+        }
+
+        .syth-logo-btn:hover {
+            transform: scale(1.1) translateY(-2px);
+            filter: drop-shadow(0 4px 12px rgba(255, 20, 147, 0.5));
+        }
+
         /* Hero Section */
         .hero {
             padding: 140px 20px;
@@ -250,7 +279,8 @@
         }
 
         /* Projects Section */
-        #projects-section {
+        #projects-section,
+        #syth-section {
             display: none;
             /* Hidden by default */
             opacity: 0;
@@ -263,7 +293,8 @@
             z-index: 10;
         }
 
-        #projects-section.active {
+        #projects-section.active,
+        #syth-section.active {
             display: block;
             opacity: 1;
             transform: translateY(0);
@@ -435,10 +466,13 @@
             <!-- Spotify Embed -->
             <iframe class="spotify-iframe" style="border-radius:12px; margin-top: 4px;" src="https://open.spotify.com/embed/playlist/3b70HOcE92Y4JNmCpsQwpe?utm_source=generator&theme=0" width="250" height="80" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
-        <div>
+        <div class="nav-right">
             <a href="#projects" id="nav-projects-link">Projects</a>
             <a href="Maxwell_Mitchell_Resume.pdf" target="_blank">Resume</a>
             <a href="contact.html">Contact</a>
+            <a href="#syth-section" class="syth-logo-btn" title="Syth Band">
+                <img src="Syth_Logo.png" alt="Syth Logo">
+            </a>
         </div>
     </nav>
 
@@ -488,6 +522,15 @@
         </div>
     </div>
 
+    <div id="syth-section">
+        <div class="container" style="text-align: center;">
+            <h2 class="section-title">Syth <span>Band</span></h2>
+            <p style="color: var(--text-muted); font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
+                We are a band formed at WashU. Stay tuned for upcoming performances and music releases!
+            </p>
+        </div>
+    </div>
+
     <footer>
         &copy; 2026 Maxwell Mitchell | Built with Gemini & GitHub
     </footer>
@@ -497,8 +540,11 @@
             const navLink = document.getElementById('nav-projects-link');
             const heroBtn = document.getElementById('hero-projects-btn');
             const projectsSection = document.getElementById('projects-section');
+            const sythBtn = document.querySelector('.syth-logo-btn');
+            const sythSection = document.getElementById('syth-section');
 
             function openProjects() {
+                if (sythSection.classList.contains('active')) closeSyth();
                 projectsSection.style.display = 'block';
                 void projectsSection.offsetWidth;
                 projectsSection.classList.add('active');
@@ -526,8 +572,35 @@
                 }
             }
 
+            function openSyth() {
+                if (projectsSection.classList.contains('active')) closeProjects();
+                sythSection.style.display = 'block';
+                void sythSection.offsetWidth;
+                sythSection.classList.add('active');
+                setTimeout(() => {
+                    sythSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 50);
+            }
+
+            function closeSyth() {
+                sythSection.classList.remove('active');
+                setTimeout(() => {
+                    sythSection.style.display = 'none';
+                }, 600);
+            }
+
+            function toggleSyth(e) {
+                if (e) e.preventDefault();
+                if (sythSection.classList.contains('active')) {
+                    closeSyth();
+                } else {
+                    openSyth();
+                }
+            }
+
             navLink.addEventListener('click', toggleProjects);
             heroBtn.addEventListener('click', toggleProjects);
+            sythBtn.addEventListener('click', toggleSyth);
 
             // Open projects if accessing via hash from another page
             if (window.location.hash === '#projects') {
