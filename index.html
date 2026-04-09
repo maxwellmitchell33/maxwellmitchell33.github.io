@@ -85,6 +85,68 @@
         nav div a:hover::after {
             width: 100%;
         }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .spotify-widget {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(29, 185, 84, 0.08); /* Dark subtle green */
+            border: 1px solid rgba(29, 185, 84, 0.2);
+            padding: 6px 14px;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .spotify-widget:hover {
+            background: rgba(29, 185, 84, 0.15);
+            border-color: rgba(29, 185, 84, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .spotify-icon {
+            width: 20px;
+            height: 20px;
+            fill: #1db954; /* Spotify Green */
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .spotify-info {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.15;
+            justify-content: center;
+        }
+
+        .spotify-info .now-listening {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #1db954;
+            letter-spacing: 0.5px;
+        }
+
+        .spotify-info .song-title {
+            font-size: 0.85rem;
+            color: var(--text-main);
+            font-weight: 500;
+            max-width: 140px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
         
         /* Hero Section */
         .hero { 
@@ -311,13 +373,25 @@
             .hero h1 { font-size: 3rem; }
             nav { padding: 1rem 1.5rem; }
             nav div a { margin-left: 15px; font-size: 0.9rem;}
+            .spotify-widget { display: none; } /* Hide on very small screens to save space */
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="brand">MM</div>
+        <div class="nav-left">
+            <div class="brand">MM</div>
+            <a href="#" class="spotify-widget" id="spotify-widget">
+                <svg class="spotify-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.521 17.34c-.24.394-.756.52-1.15.28-3.153-1.928-7.119-2.36-11.782-1.293-.456.104-.912-.18-1.016-.636-.104-.456.18-.912.636-1.016 5.09-1.162 9.458-.669 13.033 1.516.393.24.52.756.279 1.149zm1.564-3.467c-.302.492-.938.648-1.432.346-3.606-2.215-9.123-2.851-12.721-1.558-.574.208-1.196-.09-1.404-.664-.208-.574.09-1.196.664-1.404 4.195-1.51 10.32-1.802 14.547.788.494.301.65.938.346 1.432zm.107-3.633C14.862 7.643 8.625 7.447 5.023 8.541c-.689.209-1.42-.18-1.629-.869-.208-.689.18-1.42.869-1.63 4.18-1.272 11.082-1.045 16.027 1.887.625.37 .832 1.176.462 1.801-.37.625-1.176.832-1.801.462z"/>
+                </svg>
+                <div class="spotify-info">
+                    <span class="now-listening">Currently Vibing To</span>
+                    <span class="song-title">Set up required</span>
+                </div>
+            </a>
+        </div>
         <div>
             <a href="#projects" id="nav-projects-link">Projects</a>
             <a href="Maxwell_Mitchell_Resume.pdf" target="_blank">Resume</a>
