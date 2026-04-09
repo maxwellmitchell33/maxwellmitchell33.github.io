@@ -140,14 +140,24 @@
         .hero {
             padding: 140px 20px;
             text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
             min-height: 50vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             position: relative;
+            background-image: linear-gradient(rgba(7, 7, 7, 0.88), rgba(7, 7, 7, 0.95)), url('Maxwell_bass.jpg');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: luminosity;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         /* Background ambient glow effect */
@@ -418,9 +428,11 @@
     </nav>
 
     <section class="hero">
-        <h1>Maxwell <span class="highlight">Mitchell</span></h1>
-        <p>Mechanical Engineering - <strong>Washington University in St. Louis</strong>. </p>
-        <button id="hero-projects-btn" class="btn">Explore My Work</button>
+        <div class="hero-content">
+            <h1>Maxwell <span class="highlight">Mitchell</span></h1>
+            <p>Mechanical Engineering - <strong>Washington University in St. Louis</strong>. </p>
+            <button id="hero-projects-btn" class="btn">Explore My Work</button>
+        </div>
     </section>
 
     <div id="projects-section">
