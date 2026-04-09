@@ -148,14 +148,24 @@
             justify-content: center;
             align-items: center;
             position: relative;
-            background-image: linear-gradient(rgba(7, 7, 7, 0.88), rgba(7, 7, 7, 0.95)), url('Maxwell_bass.jpg');
+            z-index: 1;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('Maxwell_bass.jpg');
             background-size: cover;
-            background-position: center;
-            background-blend-mode: luminosity;
+            background-position: center top;
+            filter: grayscale(100%) brightness(0.25);
+            z-index: -1;
         }
 
         .hero-content {
-            z-index: 2;
+            z-index: 1;
             max-width: 800px;
             margin: 0 auto;
         }
@@ -428,6 +438,7 @@
     </nav>
 
     <section class="hero">
+        <div class="hero-bg"></div>
         <div class="hero-content">
             <h1>Maxwell <span class="highlight">Mitchell</span></h1>
             <p>Mechanical Engineering - <strong>Washington University in St. Louis</strong>. </p>
