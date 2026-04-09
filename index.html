@@ -259,6 +259,8 @@
             background: #0c0c0c;
             border-top: 1px solid rgba(138, 43, 226, 0.2);
             padding: 100px 20px;
+            position: relative;
+            z-index: 10;
         }
 
         #projects-section.active {
@@ -500,6 +502,7 @@
                 projectsSection.style.display = 'block';
                 void projectsSection.offsetWidth;
                 projectsSection.classList.add('active');
+                heroBtn.textContent = 'Hide Projects';
                 setTimeout(() => {
                     projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }, 50);
@@ -507,6 +510,7 @@
 
             function closeProjects() {
                 projectsSection.classList.remove('active');
+                heroBtn.textContent = 'Explore My Work';
                 setTimeout(() => {
                     projectsSection.style.display = 'none';
                 }, 600);
