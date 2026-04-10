@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maxwell Mitchell | Contact</title>
+    <title>Maxwell Mitchell | Projects</title>
     <!-- Google Fonts for modern typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -159,205 +159,119 @@
             filter: drop-shadow(0 4px 12px rgba(255, 20, 147, 0.5));
         }
 
-        /* Page hero */
-        .page-header {
-            padding: 48px 20px 36px;
-            text-align: center;
+        /* Projects Section specific to dedicated page */
+        #projects-section {
+            display: block;
+            background: var(--bg-dark);
+            padding: 100px 20px;
+            position: relative;
+            flex-grow: 1;
+            z-index: 10;
         }
 
-        .page-header h1 {
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h2.section-title {
+            text-align: center;
             font-size: 2.8rem;
+            margin-bottom: 60px;
             color: var(--text-main);
-            margin-bottom: 0;
         }
 
-        .page-header p {
-            color: var(--text-muted);
-            margin-top: 8px;
-            font-size: 1.1rem;
+        .section-title span {
+            color: var(--hot-pink);
         }
 
-        /* Contact card */
-        .contact-wrapper {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 30px 20px 80px;
+        /* Project Cards */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
         }
 
-        .contact-card {
+        .card {
             background: var(--bg-card);
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            padding: 48px 40px;
-            max-width: 480px;
-            width: 100%;
-            text-align: center;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 1;
         }
 
-        .contact-card::before {
+        .card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            height: 5px;
+            width: 100%;
+            height: 4px;
             background: var(--grad-primary);
+            z-index: 2;
+            transition: height 0.3s ease;
         }
 
-        /* Photo */
-        .photo-wrap {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 24px;
+        .card:hover {
+            transform: translateY(-12px);
+            border-color: rgba(255, 20, 147, 0.2);
+            box-shadow: 0 20px 45px rgba(75, 0, 130, 0.3);
         }
 
-        .photo-wrap img {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #111;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            display: block;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .card:hover::before {
+            height: 6px;
         }
 
-        .photo-wrap img:hover {
-            transform: scale(1.04);
-            box-shadow: 0 8px 30px rgba(255, 20, 147, 0.3);
-        }
-
-        .photo-wrap::after {
+        .card::after {
             content: '';
             position: absolute;
-            inset: -4px;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(255, 20, 147, 0.08) 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
             border-radius: 50%;
-            background: conic-gradient(var(--hot-pink), var(--deep-purple), var(--hot-pink));
             z-index: -1;
-            animation: spin 6s linear infinite;
+            transition: transform 0.6s ease;
         }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        .card:hover::after {
+            transform: scale(1.6);
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.1) 0%, transparent 70%);
         }
 
-        /* Name & title */
-        .contact-card h2 {
-            font-size: 1.8rem;
+        .card h3 {
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-size: 1.5rem;
             color: var(--text-main);
-            margin-bottom: 6px;
-            letter-spacing: -0.3px;
         }
 
-        .contact-card .subtitle {
-            color: var(--hot-pink);
-            font-size: 0.95rem;
-            margin-bottom: 32px;
-            font-weight: 500;
+        .card p {
+            color: var(--text-muted);
+            flex-grow: 1;
+            font-size: 1rem;
+            line-height: 1.6;
         }
 
-        /* Divider */
-        .divider {
-            height: 1px;
-            background: rgba(255, 255, 255, 0.05);
-            margin: 28px 0;
-        }
-
-        /* Contact links */
-        .contact-links {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        .contact-link {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 14px 20px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            background: #0c0c0c;
-        }
-
-        .contact-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 20, 147, 0.15);
-        }
-
-        /* LinkedIn */
-        .contact-link.linkedin {
-            color: #4da6ff;
-        }
-        .contact-link.linkedin:hover {
-            background: rgba(77, 166, 255, 0.1);
-            border-color: rgba(77, 166, 255, 0.3);
-        }
-
-        /* Handshake */
-        .contact-link.handshake {
-            color: #ff3333;
-        }
-        .contact-link.handshake:hover {
-            background: rgba(255, 51, 51, 0.1);
-            border-color: rgba(255, 51, 51, 0.3);
-        }
-
-        /* Email */
-        .contact-link.email {
-            color: var(--hot-pink);
-        }
-        .contact-link.email:hover {
+        .tag {
             background: rgba(255, 20, 147, 0.1);
-            border-color: rgba(255, 20, 147, 0.3);
-        }
-
-        /* Resume */
-        .contact-link.resume {
-            color: #00fa9a;
-        }
-        .contact-link.resume:hover {
-            background: rgba(0, 250, 154, 0.1);
-            border-color: rgba(0, 250, 154, 0.3);
-        }
-
-        .contact-link .icon {
-            width: 24px;
-            height: 24px;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .contact-link .link-text {
-            text-align: left;
-            flex: 1;
-            color: var(--text-main);
-        }
-
-        .contact-link .link-label {
-            display: block;
+            color: var(--hot-pink);
+            padding: 6px 14px;
+            border-radius: 20px;
             font-size: 0.75rem;
-            opacity: 0.6;
-            font-weight: 500;
+            font-weight: 700;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .contact-link .link-value {
-            display: block;
-            font-size: 0.95rem;
-            font-weight: 600;
+            align-self: flex-start;
+            border: 1px solid rgba(255, 20, 147, 0.2);
+            font-family: 'Inter', sans-serif;
         }
 
         footer {
@@ -367,7 +281,6 @@
             font-size: 0.9rem;
             border-top: 1px solid rgba(255, 255, 255, 0.03);
             background: var(--bg-dark);
-            margin-top: auto;
         }
 
         @media (max-width: 768px) {
@@ -380,8 +293,6 @@
             nav div.nav-links a { margin-left: 15px; font-size: 0.9rem; }
             .nav-left { gap: 10px; flex-wrap: wrap; }
             .spotify-iframe { width: 150px !important; }
-            .contact-card { padding: 36px 24px; }
-            .contact-card h2 { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -421,92 +332,47 @@
         </div>
         <div class="nav-right nav-links">
             <a href="index.html">Home</a>
-            <a href="projects.html">Projects</a>
+            <a href="projects.html" id="nav-projects-link" style="color: var(--hot-pink);">Projects</a>
             <a href="Maxwell_Mitchell_Resume.pdf" target="_blank">Resume</a>
-            <a href="contact.html" style="color: var(--hot-pink);">Contact</a>
-            <a href="syth.html" class="syth-logo-btn" title="Syth Band" style="filter: drop-shadow(0 0 10px rgba(255, 20, 147, 0.8));">
+            <a href="contact.html">Contact</a>
+            <a href="syth.html" class="syth-logo-btn" title="Syth Band">
                 <img src="Syth_Logo.png" alt="Syth Logo">
             </a>
         </div>
     </nav>
 
-    <div class="page-header">
-        <h1>Get In Touch</h1>
-        <p>I'd love to connect — reach out anytime.</p>
-    </div>
+    <div id="projects-section">
+        <div class="container">
+            <h2 class="section-title">Featured <span>Projects</span></h2>
+            <div class="project-grid">
 
-    <div class="contact-wrapper">
-        <div class="contact-card">
+                <div class="card">
+                    <span class="tag">MATLAB</span>
+                    <h3>Rankine Cycle Simulation</h3>
+                    <p>Computational modeling of steam power cycles to analyze thermodynamic efficiency and generate T-s
+                        diagrams.</p>
+                </div>
 
-            <div class="photo-wrap">
-                <img src="profile_photo.png" alt="Maxwell Mitchell profile photo">
-            </div>
+                <div class="card">
+                    <span class="tag">Research</span>
+                    <h3>Knee Injury Rehab</h3>
+                    <p>A biopsychosocial approach to recovery, integrating mechanical physics with psychological
+                        rehabilitation metrics.</p>
+                </div>
 
-            <h2>Maxwell Mitchell</h2>
-            <p class="subtitle">Mechanical Engineering · Washington University in St. Louis</p>
+                <div class="card">
+                    <span class="tag">FEA / SOLID MECHANICS</span>
+                    <h3>Landing Gear Impact</h3>
+                    <p>Modeled an Al 7075-T6 strut to analyze compressive stress and plastic deformation risk during
+                        "hard landing" scenarios.</p>
+                </div>
 
-            <div class="divider"></div>
-
-            <div class="contact-links">
-
-                <!-- LinkedIn -->
-                <a href="https://www.linkedin.com/in/maxwell-h-mitchell/" target="_blank" rel="noopener noreferrer"
-                    class="contact-link linkedin" id="linkedin-link">
-                    <span class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="22"
-                            height="22">
-                            <path
-                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                        </svg>
-                    </span>
-                    <span class="link-text">
-                        <span class="link-label">LinkedIn</span>
-                        <span class="link-value">linkedin.com/in/maxwell-h-mitchell</span>
-                    </span>
-                </a>
-
-                <!-- Handshake -->
-                <a href="https://app.joinhandshake.com/profiles/maxwell-h-mitchell" target="_blank" rel="noopener noreferrer" class="contact-link handshake" id="handshake-link">
-                    <span class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
-                            <path d="M20 6h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM10 4h4v2h-4V4z"/>
-                        </svg>
-                    </span>
-                    <span class="link-text">
-                        <span class="link-label">Handshake</span>
-                        <span class="link-value">joinhandshake.com/profiles/maxwell</span>
-                    </span>
-                </a>
-
-                <!-- Email -->
-                <a href="mailto:maxwellmitchell33@gmail.com" class="contact-link email" id="email-link">
-                    <span class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="22"
-                            height="22">
-                            <path
-                                d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
-                        </svg>
-                    </span>
-                    <span class="link-text">
-                        <span class="link-label">Email</span>
-                        <span class="link-value">maxwellmitchell33@gmail.com</span>
-                    </span>
-                </a>
-
-                <!-- Resume -->
-                <a href="Maxwell_Mitchell_Resume.pdf" target="_blank" class="contact-link resume" id="resume-link">
-                    <span class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="22"
-                            height="22">
-                            <path
-                                d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
-                        </svg>
-                    </span>
-                    <span class="link-text">
-                        <span class="link-label">Resume</span>
-                        <span class="link-value">View / Download PDF</span>
-                    </span>
-                </a>
+                <div class="card">
+                    <span class="tag">ARDUINO / CAD</span>
+                    <h3>Automated Pill Dispenser</h3>
+                    <p>Designed and built a prototype for individuals with limited dexterity using Arduino logic to
+                        control medication scheduling.</p>
+                </div>
 
             </div>
         </div>

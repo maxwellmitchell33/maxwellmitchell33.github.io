@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maxwell Mitchell | Syth Band</title>
+    <!-- Google Fonts for modern typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #070707;
+            --bg-card: #151515;
+            --hot-pink: #ff1493;
+            --deep-purple: #4b0082;
+            --accent-purple: #8a2be2;
+            --text-main: #f5f5f5;
+            --text-muted: #a0a0a0;
+            --grad-primary: linear-gradient(135deg, #ff1493, #8a2be2);
+            --grad-hover: linear-gradient(135deg, #ff69b4, #9932cc);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            margin: 0;
+            background-color: var(--bg-dark);
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, .brand {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(7, 7, 7, 0.85);
+            backdrop-filter: blur(12px);
+            padding: 1.2rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 20, 147, 0.15);
+        }
+
+        .brand {
+            font-weight: 800;
+            font-size: 1.8rem;
+            background: var(--grad-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+
+        nav div.nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            margin-left: 2rem;
+            transition: color 0.3s ease;
+            position: relative;
+            font-size: 1rem;
+        }
+        
+        nav div.nav-links a:hover {
+            color: var(--hot-pink);
+        }
+
+        nav div.nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--grad-primary);
+            transition: width 0.3s ease;
+        }
+
+        nav div.nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .social-widget {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: rgba(255, 20, 147, 0.05);
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            padding: 8px 16px;
+            border-radius: 30px;
+            margin-right: 10px;
+        }
+
+        .social-widget a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            margin: 0 !important;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+        }
+
+        .social-widget a:hover {
+            transform: scale(1.15) translateY(-2px);
+        }
+
+        .social-widget svg {
+            width: 22px;
+            height: 22px;
+            transition: filter 0.3s ease;
+        }
+
+        .social-widget a:hover svg {
+            filter: drop-shadow(0 4px 8px rgba(255, 20, 147, 0.6));
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .syth-logo-btn {
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            margin-left: 2rem !important;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease !important;
+        }
+
+        .syth-logo-btn::after {
+            display: none !important;
+        }
+
+        .syth-logo-btn img {
+            height: 48px;
+            width: auto;
+            border-radius: 8px;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
+        }
+
+        .syth-logo-btn:hover {
+            transform: scale(1.1) translateY(-2px);
+            filter: drop-shadow(0 4px 12px rgba(255, 20, 147, 0.5));
+        }
+
+        /* Syth Section specific to dedicated page */
+        #syth-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: var(--bg-dark);
+            padding: 100px 20px;
+            flex-grow: 1;
+            position: relative;
+            z-index: 10;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h2.section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .section-title span {
+            color: var(--hot-pink);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            background: var(--bg-dark);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            .nav-right { flex-wrap: wrap; }
+            nav div.nav-links a { margin-left: 15px; font-size: 0.9rem; }
+            .nav-left { gap: 10px; flex-wrap: wrap; }
+            .spotify-iframe { width: 150px !important; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-left">
+            <div class="brand"><a href="index.html" style="text-decoration: none; color: inherit;">MM</a></div>
+            <!-- Social Widget -->
+            <div class="social-widget">
+               <a href="https://linkedin.com/in/maxwell-h-mitchell/" target="_blank" aria-label="LinkedIn">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                     <defs>
+                        <linearGradient id="grad-li" x1="0%" y1="0%" x2="100%" y2="100%">
+                           <stop offset="0%" stop-color="#ff1493" />
+                           <stop offset="100%" stop-color="#8a2be2" />
+                        </linearGradient>
+                     </defs>
+                     <path fill="url(#grad-li)" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+               </a>
+               <a href="https://www.instagram.com/maxwellm33/?hl=en" target="_blank" aria-label="Instagram">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                     <defs>
+                        <linearGradient id="grad-ig" x1="0%" y1="0%" x2="100%" y2="100%">
+                           <stop offset="0%" stop-color="#ff1493" />
+                           <stop offset="100%" stop-color="#8a2be2" />
+                        </linearGradient>
+                     </defs>
+                     <path fill="url(#grad-ig)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                  </svg>
+               </a>
+            </div>
+            <!-- Spotify Embed -->
+            <iframe class="spotify-iframe" style="border-radius:12px; margin-top: 4px;" src="https://open.spotify.com/embed/playlist/3b70HOcE92Y4JNmCpsQwpe?utm_source=generator&theme=0" width="250" height="80" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="nav-right nav-links">
+            <a href="index.html">Home</a>
+            <a href="projects.html" id="nav-projects-link">Projects</a>
+            <a href="Maxwell_Mitchell_Resume.pdf" target="_blank">Resume</a>
+            <a href="contact.html">Contact</a>
+            <a href="syth.html" class="syth-logo-btn" title="Syth Band" style="filter: drop-shadow(0 0 10px rgba(255, 20, 147, 0.8));">
+                <img src="Syth_Logo.png" alt="Syth Logo">
+            </a>
+        </div>
+    </nav>
+
+    <div id="syth-section">
+        <div class="container" style="text-align: center;">
+            <h2 class="section-title">Syth <span>Band</span></h2>
+            
+            <img src="Syth_Logo.png" alt="Syth Logo Large" style="width: 180px; margin-bottom: 30px; border-radius: 12px; filter: drop-shadow(0 10px 20px rgba(138, 43, 226, 0.4));">
+
+            <p style="color: var(--text-muted); font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
+                We are a band formed at WashU throwing down heavy riffs and hypnotic grooves. Stay tuned for upcoming performances and music releases!
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 Maxwell Mitchell | Built with Gemini & GitHub
+    </footer>
+
+</body>
+</html>
