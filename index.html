@@ -160,7 +160,7 @@
             height: 48px;
             width: auto;
             border-radius: 8px;
-            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
+            filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.5));
         }
 
         .syth-logo-btn:hover {
@@ -291,7 +291,8 @@
             padding: 100px 20px;
             position: relative;
             z-index: 10;
-            overflow: hidden; /* Required for droplets */
+            overflow: hidden;
+            /* Required for droplets */
         }
 
         #about-section.active {
@@ -299,7 +300,7 @@
             opacity: 1;
             transform: translateY(0);
         }
-        
+
         /* Droplet Effects */
         .droplet {
             position: absolute;
@@ -317,13 +318,16 @@
                 transform: translateY(-50px) scaleY(1);
                 opacity: 0;
             }
+
             10% {
                 opacity: 0.8;
             }
+
             90% {
                 transform: translateY(1200px) scaleY(1.5);
                 opacity: 0.4;
             }
+
             100% {
                 transform: translateY(1300px) scaleY(0);
                 opacity: 0;
@@ -343,10 +347,24 @@
         }
 
         @keyframes btn-fall {
-            0% { transform: translateY(0px) scaleY(1); opacity: 0; }
-            10% { opacity: 0.7; }
-            90% { transform: translateY(150px) scaleY(1.5); opacity: 0.3; }
-            100% { transform: translateY(200px) scaleY(0); opacity: 0; }
+            0% {
+                transform: translateY(0px) scaleY(1);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.7;
+            }
+
+            90% {
+                transform: translateY(150px) scaleY(1.5);
+                opacity: 0.3;
+            }
+
+            100% {
+                transform: translateY(200px) scaleY(0);
+                opacity: 0;
+            }
         }
 
         /* Ominous Clouds */
@@ -356,12 +374,12 @@
             left: -50px;
             right: -50px;
             height: 160px;
-            background-image: 
+            background-image:
                 radial-gradient(circle at 70px 0, #090909 80px, transparent 80px),
                 radial-gradient(circle at 120px -20px, #050505 100px, transparent 100px);
             background-size: 220px 160px, 180px 150px;
             background-repeat: repeat-x;
-            filter: blur(6px) drop-shadow(0 15px 30px rgba(0,0,0,1));
+            filter: blur(6px) drop-shadow(0 15px 30px rgba(0, 0, 0, 1));
             z-index: 6;
             pointer-events: none;
         }
@@ -375,7 +393,7 @@
             pointer-events: none;
             z-index: 8;
         }
-        
+
         .lightning-flash {
             position: absolute;
             inset: 0;
@@ -386,8 +404,34 @@
         }
 
         @keyframes flash-anim {
-            0% { opacity: 1; background: rgba(255, 20, 147, 0.4); }
-            100% { opacity: 0; }
+            0% {
+                opacity: 1;
+                background: rgba(255, 20, 147, 0.4);
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+        
+        /* The Walking Chicken */
+        .chicken-walker {
+            position: fixed;
+            bottom: 30px;
+            left: 0;
+            font-size: 3rem;
+            z-index: 1000;
+            pointer-events: none;
+            /* Walk forward for 15s, pause to turn, walk back for 15s */
+            animation: walk-chicken 20s linear infinite;
+        }
+
+        @keyframes walk-chicken {
+            0% { transform: translateX(-100px) scaleX(1); }
+            49% { transform: translateX(110vw) scaleX(1); }
+            50% { transform: translateX(110vw) scaleX(-1); }
+            99% { transform: translateX(-100px) scaleX(-1); }
+            100% { transform: translateX(-100px) scaleX(1); }
         }
 
         .container {
@@ -517,8 +561,14 @@
                 margin-left: 15px;
                 font-size: 0.9rem;
             }
-            .nav-left { gap: 10px; }
-            .spotify-iframe { width: 150px !important; }
+
+            .nav-left {
+                gap: 10px;
+            }
+
+            .spotify-iframe {
+                width: 150px !important;
+            }
         }
     </style>
 </head>
@@ -530,37 +580,44 @@
             <div class="brand">MM</div>
             <!-- Social Widget -->
             <div class="social-widget">
-               <a href="https://linkedin.com/in/maxwell-h-mitchell/" target="_blank" aria-label="LinkedIn">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                     <defs>
-                        <linearGradient id="grad-li" x1="0%" y1="0%" x2="100%" y2="100%">
-                           <stop offset="0%" stop-color="#ff1493" />
-                           <stop offset="100%" stop-color="#8a2be2" />
-                        </linearGradient>
-                     </defs>
-                     <path fill="url(#grad-li)" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                  </svg>
-               </a>
-               <a href="https://www.instagram.com/maxwellm33/?hl=en" target="_blank" aria-label="Instagram">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                     <defs>
-                        <linearGradient id="grad-ig" x1="0%" y1="0%" x2="100%" y2="100%">
-                           <stop offset="0%" stop-color="#ff1493" />
-                           <stop offset="100%" stop-color="#8a2be2" />
-                        </linearGradient>
-                     </defs>
-                     <path fill="url(#grad-ig)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
-                  </svg>
-               </a>
+                <a href="https://linkedin.com/in/maxwell-h-mitchell/" target="_blank" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <defs>
+                            <linearGradient id="grad-li" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#ff1493" />
+                                <stop offset="100%" stop-color="#8a2be2" />
+                            </linearGradient>
+                        </defs>
+                        <path fill="url(#grad-li)"
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/maxwellm33/?hl=en" target="_blank" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <defs>
+                            <linearGradient id="grad-ig" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#ff1493" />
+                                <stop offset="100%" stop-color="#8a2be2" />
+                            </linearGradient>
+                        </defs>
+                        <path fill="url(#grad-ig)"
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+                    </svg>
+                </a>
             </div>
             <!-- Spotify Embed -->
-            <iframe class="spotify-iframe" style="border-radius:12px; margin-top: 4px;" src="https://open.spotify.com/embed/playlist/3b70HOcE92Y4JNmCpsQwpe?utm_source=generator&theme=0" width="250" height="80" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe class="spotify-iframe" style="border-radius:12px; margin-top: 4px;"
+                src="https://open.spotify.com/embed/playlist/3b70HOcE92Y4JNmCpsQwpe?utm_source=generator&theme=0"
+                width="250" height="80" frameborder="0" allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
         </div>
         <div class="nav-right nav-links">
             <a href="projects.html" id="nav-projects-link">Projects</a>
             <a href="Maxwell_Mitchell_Resume.pdf" target="_blank">Resume</a>
             <a href="contact.html">Contact</a>
-            <a href="syth.html" class="syth-logo-btn" title="Syth Band" style="filter: drop-shadow(0 0 10px rgba(255, 20, 147, 0.8));">
+            <a href="syth.html" class="syth-logo-btn" title="Syth Band"
+                style="filter: drop-shadow(0 0 10px rgba(255, 20, 147, 0.8));">
                 <img src="Syth_Logo.png" alt="Syth Logo">
             </a>
         </div>
@@ -574,22 +631,76 @@
             <button id="hero-about-btn" class="btn">About Me</button>
         </div>
     </section>
+    
+    <div class="chicken-walker">🐔</div>
 
     <div id="about-section">
         <div class="dark-clouds"></div>
         <div class="container">
             <h2 class="section-title" style="position: relative; z-index: 7;">About <span>Me</span></h2>
-            <div style="max-width: 800px; margin: 0 auto; color: var(--text-muted); font-size: 1.15rem; line-height: 1.8; position: relative; z-index: 2;">
+            <div
+                style="max-width: 800px; margin: 0 auto; color: var(--text-muted); font-size: 1.15rem; line-height: 1.8; position: relative; z-index: 2;">
                 <p style="margin-bottom: 20px;">
-                    Hi, I'm Maxwell Mitchell. I'm a Mechanical Engineering student at Washington University in St. Louis 
-                    with a deep passion for building, designing, and understanding the mechanics of the world around us. 
-                    Beyond the classroom, I dedicate my time to hands-on projects encompassing structural mechanics, 
-                    CAD modeling, and programming.
+                    Hello, my name is Maxwell Mitchell. I'm a Mechanical Engineering student at Washington University in
+                    St. Louis
+                    with a passion for building, designing, and understanding the physical mechanics of the world around
+                    us.
+
                 </p>
                 <p>
-                    When I'm not studying thermodynamics or designing robotic components, I am the lead guitarist in 
-                    Syth, a heavy-rock band formed right here at WashU! I believe that engineering and music share 
-                    the same foundation—disciplined creativity and absolute dedication.
+                    I am from Waterloo, Illinois. Waterloo, Illinois is a small town of about 10,000 people located 45
+                    minutes
+                    outside of St. Louis, Missouri. Growing up in a small town, I learned to always be hands on.
+                    Additionally, living
+                    in Waterloo has instilled a stron sense of community and work ethic that I use every day today.
+                    Growing up in
+                    my house hold, we had plenty of animals I was able to tend to (dogs, cats, horses, chickens, etc.).
+                    For my first job
+                    I worked at a local farm where I was able to branch two of the things I love the most - working with
+                    my hands and
+                    caring for animals. While working on the farm during weekends and summers, I also was involved in
+                    many different sports,
+                    finding another passion with football. Football has futher helped me develope my sense of becoming a
+                    leader and pursuing
+                    bigger an better goals. I worked at the same farm and continued playing football from middle school
+                    through my senior year
+                    of high school. Finishing high school left me with the big question of what do I want to do with my
+                    life . . .
+
+                <p>
+                    While finishing my senior year of high school, I was able to visit schools with my parents to look
+                    for my best fit
+                    academically and athletically. Fortunately, I was accepted into Washington Univeristy in Saint Louis
+                    (WashU) where I
+                    was given the opportunity to do both. Coming into WashU at first was a big adjustment. I had never
+                    been used to being
+                    around so many people; however, I quickly grew to love it. Additionally, the workload for being a
+                    Mechanical Engineering
+                    student came fast but I was fortunate to build a strong foundation of friends who I could
+                    collaborate and work with.
+                </p>
+                <p>
+                    One of the issues I encountered with the adjustment was my physical health. The years of playing
+                    football had caught
+                    up to me and I had to make one of the hardest decisions of my life. After three knee surgeries, I
+                    decided to hang up
+                    the cleats. What started as a sour moment planted the idea of a new passion. Music and playing the
+                    guitar had always
+                    been an interest of mine growing up. When I entered my sophomore year at WashU, I moved into a new
+                    apartment called
+                    "Syth" with my friends. Together we all had a passion for music and would jam in our basement on
+                    random nights.
+                    Eventually, random nights turned into every night while we learned and wrote songs. Today we know
+                    have a fully
+                    developed band and play show around the St. Louis area. The best part about it has been the ability
+                    to express myself
+                    in a new creative outlet. Not only that, but Syth has allowed us to create an emotional outlet for
+                    WashU students,
+                    staff members, family, friends, and many more important people. Being able to reahc out to a
+                    community and
+                    develope relationships with all of these people has been one of the most rewarding experiences of my
+                    life. To keep
+                    up with Syth, click the logo in the top right corner of the page!
                 </p>
             </div>
         </div>
@@ -622,7 +733,7 @@
                 droplet.style.left = Math.random() * 100 + 'vw';
                 const duration = Math.random() * 3 + 4; // 4s to 7s fall
                 droplet.style.animationDuration = duration + 's';
-                
+
                 // Random width/height variations for depth
                 const scale = Math.random() * 0.8 + 0.5;
                 if (scale < 0.8) {
@@ -662,44 +773,44 @@
 
                 const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
                 svg.classList.add('lightning');
-                
+
                 const height = aboutSection.offsetHeight || 600;
                 svg.style.height = height + 'px';
-                
+
                 const startX = Math.random() * window.innerWidth;
                 let path = `M ${startX} 0 `;
-                
+
                 let currentY = 0;
                 let currentX = startX;
-                
+
                 // Generate jagged path
                 while (currentY < height) {
                     currentY += Math.random() * 60 + 20; // drop down
                     currentX += (Math.random() - 0.5) * 150; // shift left or right heavily
                     path += `L ${currentX} ${currentY} `;
                 }
-                
+
                 const pathEl = document.createElementNS("http://www.w3.org/2000/svg", "path");
                 pathEl.setAttribute('d', path);
                 pathEl.setAttribute('stroke', 'var(--hot-pink)');
                 pathEl.setAttribute('stroke-width', (Math.random() * 2 + 2).toString());
                 pathEl.setAttribute('fill', 'none');
                 pathEl.setAttribute('filter', 'drop-shadow(0 0 15px rgba(255, 20, 147, 1))');
-                
+
                 svg.appendChild(pathEl);
                 aboutSection.appendChild(svg);
-                
+
                 // Flash the container
                 const flash = document.createElement('div');
                 flash.classList.add('lightning-flash');
                 aboutSection.appendChild(flash);
-                
+
                 setTimeout(() => {
                     svg.remove();
                     flash.remove();
                 }, 150 + Math.random() * 100);
             }
-            
+
             function createButtonDroplet() {
                 // Only drip if section is closed
                 if (aboutSection.classList.contains('active')) return;
@@ -718,10 +829,10 @@
 
                 // Drip from somewhere along the bottom edge of the button
                 droplet.style.left = (15 + Math.random() * 70) + '%';
-                
+
                 const duration = Math.random() * 1.5 + 1.5; // 1.5s to 3s fall
                 droplet.style.animationDuration = duration + 's';
-                
+
                 aboutBtn.appendChild(droplet);
 
                 setTimeout(() => {

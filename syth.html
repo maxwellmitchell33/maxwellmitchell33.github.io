@@ -171,20 +171,167 @@
             z-index: 10;
         }
 
-        .container {
-            max-width: 1000px;
+        /* Syth Content Grid */
+        .syth-hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .hero-logo {
+            width: 320px;
+            max-width: 90vw;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            filter: drop-shadow(0 10px 30px rgba(138, 43, 226, 0.6));
+            animation: pulse-glow 3s infinite alternate;
+        }
+
+        @keyframes pulse-glow {
+            0% { filter: drop-shadow(0 10px 30px rgba(138, 43, 226, 0.4)); }
+            100% { filter: drop-shadow(0 10px 45px rgba(255, 20, 147, 0.8)); transform: scale(1.02); }
+        }
+
+        .syth-bio {
+            color: var(--text-main);
+            font-size: 1.25rem;
+            max-width: 600px;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        .syth-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            width: 100%;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
-        h2.section-title {
-            text-align: center;
-            font-size: 2.8rem;
+        .gallery-card {
+            grid-column: 1 / -1; /* spans full width across bottom */
+        }
+
+        .syth-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid rgba(255, 20, 147, 0.15);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .syth-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--grad-primary);
+        }
+
+        .syth-card h3 {
+            font-size: 1.6rem;
+            color: var(--hot-pink);
+            margin-top: 0;
             margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 10px;
+        }
+
+        /* Event List */
+        .event-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            max-height: 350px;
+            overflow-y: auto;
+            padding-right: 15px; /* space for scroll bar */
+        }
+        
+        /* Custom Scrollbar for Event List */
+        .event-list::-webkit-scrollbar {
+            width: 6px;
+        }
+        .event-list::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05); 
+            border-radius: 10px;
+        }
+        .event-list::-webkit-scrollbar-thumb {
+            background: rgba(255, 20, 147, 0.3); 
+            border-radius: 10px;
+        }
+        .event-list::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 20, 147, 0.6); 
+        }
+
+        .event-list li {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s;
+        }
+
+        .event-list li:hover {
+            transform: translateX(10px);
             color: var(--text-main);
         }
 
-        .section-title span {
+        .event-list .date {
             color: var(--hot-pink);
+            font-weight: 700;
+            font-size: 1.1rem;
+            min-width: 80px;
+        }
+
+        .event-list .venue {
+            flex-grow: 1;
+            font-weight: 500;
+        }
+
+        .event-list .status {
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 12px;
+            background: rgba(138, 43, 226, 0.2);
+            color: #b182ff;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .ig-embed {
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            background: #111;
+        }
+
+        .gallery-item {
+            aspect-ratio: 16 / 9;
+            background: #111;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.2);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 1px dashed rgba(255, 20, 147, 0.3);
+            transition: all 0.3s;
+        }
+
+        .gallery-item:hover {
+            border-color: var(--hot-pink);
+            color: var(--hot-pink);
+            background: rgba(255, 20, 147, 0.05);
         }
 
         footer {
@@ -205,6 +352,9 @@
             .nav-right { flex-wrap: wrap; }
             nav div.nav-links a { margin-left: 15px; font-size: 0.9rem; }
             .nav-left { gap: 10px; flex-wrap: wrap; }
+            .syth-grid {
+                grid-template-columns: 1fr;
+            }
             .spotify-iframe { width: 150px !important; }
         }
     </style>
@@ -255,14 +405,60 @@
     </nav>
 
     <div id="syth-section">
-        <div class="container" style="text-align: center;">
-            <h2 class="section-title">Syth <span>Band</span></h2>
-            
-            <img src="Syth_Logo.png" alt="Syth Logo Large" style="width: 180px; margin-bottom: 30px; border-radius: 12px; filter: drop-shadow(0 10px 20px rgba(138, 43, 226, 0.4));">
+        <div class="syth-hero">
+            <img src="Syth_Logo.png" alt="Syth Logo Large" class="hero-logo">
+            <p class="syth-bio">We are a band formed at WashU throwing down heavy riffs and hypnotic grooves.</p>
+        </div>
 
-            <p style="color: var(--text-muted); font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
-                We are a band formed at WashU throwing down heavy riffs and hypnotic grooves. Stay tuned for upcoming performances and music releases!
-            </p>
+        <div class="syth-grid">
+            <!-- Events section -->
+            <div class="syth-card">
+                <h3>Live Shows & Events</h3>
+                <ul class="event-list">
+                    <li><span class="date">3/22/25</span><span class="venue">WashU Architecture Formal #1</span><span class="status">Past</span></li>
+                    <li><span class="date">3/29/25</span><span class="venue">Bookstock #1</span><span class="status">Past</span></li>
+                    <li><span class="date">4/11/25</span><span class="venue">Sebbie and Marco's Birthday Bash #1</span><span class="status">Past</span></li>
+                    <li><span class="date">4/27/25</span><span class="venue">BeiQiArt x Syth - Bridging the Mystique</span><span class="status">Past</span></li>
+                    <li><span class="date">8/31/25</span><span class="venue">Syth Darty</span><span class="status">Past</span></li>
+                    <li><span class="date">9/26/25</span><span class="venue">Track Fall Formal</span><span class="status">Past</span></li>
+                    <li><span class="date">10/25/25</span><span class="venue">Strike x Syth Halloween Party #1</span><span class="status">Past</span></li>
+                    <li><span class="date">10/31/25</span><span class="venue">KWUR Space Race #1</span><span class="status">Past</span></li>
+                    <li><span class="date">12/7/25</span><span class="venue">LINUS</span><span class="status">Past</span></li>
+                    <li><span class="date">1/30/26</span><span class="venue">KWUR #2</span><span class="status">Past</span></li>
+                    <li><span class="date">2/12/26</span><span class="venue">Strike x Syth Valentine's Day Party #2</span><span class="status">Past</span></li>
+                    <li><span class="date">3/21/26</span><span class="venue">Architecture Formal #2</span><span class="status">Past</span></li>
+                    <li><span class="date">3/28/26</span><span class="venue">Bookstock #2</span><span class="status">Past</span></li>
+                    <li><span class="date">4/4/26</span><span class="venue">Sebbie and Marco's Birthday Bash #2</span><span class="status">Past</span></li>
+                    <li><span class="date">4/4/26</span><span class="venue">Moshmellow</span><span class="status">Past</span></li>
+                    <li><span class="date">4/17/26</span><span class="venue">Burning Kumquat</span><span class="status" style="background: rgba(255, 20, 147, 0.2); color: var(--hot-pink);">Next</span></li>
+                    <li><span class="date">4/18/26</span><span class="venue">Thurteen Carnival</span><span class="status" style="background: rgba(255, 20, 147, 0.2); color: var(--hot-pink);">Next</span></li>
+                    <li><span class="date">4/21/26</span><span class="venue">Camille Blackman x Syth</span><span class="status" style="background: rgba(255, 20, 147, 0.2); color: var(--hot-pink);">Next</span></li>
+                    <li><span class="date">4/23/26</span><span class="venue">Strike #3</span><span class="status" style="background: rgba(255, 20, 147, 0.2); color: var(--hot-pink);">Next</span></li>
+                </ul>
+            </div>
+
+            <!-- Music section -->
+            <div class="syth-card">
+                <h3>Listen to Syth</h3>
+                <!-- Embed your real single dynamically. Here we drop in the Spotify player -->
+                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4lmRSxE5NnwgPqMDLbacYb?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+
+            <!-- Photos section -->
+            <div class="syth-card gallery-card">
+                <h3>Gig Gallery</h3>
+                <div class="gallery-grid">
+                    <iframe class="ig-embed" src="https://www.instagram.com/p/DHNGuHWxGUz/embed" width="100%" height="400" frameborder="0" scrolling="no" allowtransparency="true" loading="lazy"></iframe>
+                    <iframe class="ig-embed" src="https://www.instagram.com/p/DIXvNnDx0AF/embed" width="100%" height="400" frameborder="0" scrolling="no" allowtransparency="true" loading="lazy"></iframe>
+                    <iframe class="ig-embed" src="https://www.instagram.com/p/DO4W7YnkYNo/embed" width="100%" height="400" frameborder="0" scrolling="no" allowtransparency="true" loading="lazy"></iframe>
+                    <iframe class="ig-embed" src="https://www.instagram.com/p/DSYNJFDkezZ/embed" width="100%" height="400" frameborder="0" scrolling="no" allowtransparency="true" loading="lazy"></iframe>
+                    <iframe class="ig-embed" src="https://www.instagram.com/p/DUg1XRuEeZO/embed" width="100%" height="400" frameborder="0" scrolling="no" allowtransparency="true" loading="lazy"></iframe>
+                    <iframe class="ig-embed" src="https://www.instagram.com/p/DVFOnLbkS-c/embed" width="100%" height="400" frameborder="0" scrolling="no" allowtransparency="true" loading="lazy"></iframe>
+                </div>
+                <p style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: 20px;">
+                    <a href="https://www.instagram.com/thesythband" target="_blank" style="color: var(--hot-pink); text-decoration: none; font-weight: 600;">@thesythband</a> on Instagram
+                </p>
+            </div>
         </div>
     </div>
 
