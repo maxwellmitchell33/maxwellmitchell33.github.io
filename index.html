@@ -413,26 +413,6 @@
                 opacity: 0;
             }
         }
-        
-        /* The Walking Chicken */
-        .chicken-walker {
-            position: fixed;
-            bottom: 30px;
-            left: 0;
-            font-size: 3rem;
-            z-index: 1000;
-            pointer-events: none;
-            /* Walk forward for 15s, pause to turn, walk back for 15s */
-            animation: walk-chicken 20s linear infinite;
-        }
-
-        @keyframes walk-chicken {
-            0% { transform: translateX(-100px) scaleX(1); }
-            49% { transform: translateX(110vw) scaleX(1); }
-            50% { transform: translateX(110vw) scaleX(-1); }
-            99% { transform: translateX(-100px) scaleX(-1); }
-            100% { transform: translateX(-100px) scaleX(1); }
-        }
 
         .container {
             max-width: 1000px;
@@ -631,8 +611,6 @@
             <button id="hero-about-btn" class="btn">About Me</button>
         </div>
     </section>
-    
-    <div class="chicken-walker">🐔</div>
 
     <div id="about-section">
         <div class="dark-clouds"></div>
